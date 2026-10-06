@@ -14,6 +14,8 @@ public class Movimiento : MonoBehaviour
     }
     void Update()                         //CONTROLES
     {
+        Posicion();                       //Se actualiza la posición del jugador en todo momento
+
         if (Input.GetKeyDown(KeyCode.W))
         {
             Avance();
@@ -31,6 +33,13 @@ public class Movimiento : MonoBehaviour
             Lados(-1);
         }
     }
+
+    public void Posicion()
+    {
+        posicionPersonaje = new Vector3(lateral, 0, posicionZ);   //Se actualiza la posición del jugador en los dos ejes (X y Z)
+        transform.position = posicionPersonaje;   //Se transforma la posición del jugador a la posición actual
+    }
+
 
     public void Avance()                //El jugador avanza de carril en carril y el record máximo no se borra la retroceder
     {
