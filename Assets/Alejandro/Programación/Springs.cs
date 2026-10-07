@@ -1,16 +1,20 @@
 using UnityEngine;
 
+
 public class Springs : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public GameObject Player;
+    public Movimiento Movimiento;
+   
+    private void OnTriggerEnter(Collider other)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (other.gameObject == Player)
+        {
+            Movimiento player = other.GetComponent<Movimiento>();
+            if (player != null)
+            {
+                player.Curar();
+            }
+        }
     }
 }

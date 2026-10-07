@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 449585838348679633}
   - component: {fileID: 1671944244272810599}
   - component: {fileID: 7137825721128485933}
+  - component: {fileID: 4958390501322022277}
   m_Layer: 0
   m_Name: PJ
   m_TagString: Player
@@ -46,9 +47,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee790e99d8461984bb95d7665b13053a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Movimiento
+  rb: {fileID: 0}
+  anim: {fileID: 0}
   lateral: 0
   carril: 0
   posicionPersonaje: {x: 0, y: 0, z: 0}
+  vidas: 3
 --- !u!54 &1671944244272810599
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -71,7 +75,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -97,3 +101,33 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4958390501322022277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4275479393505170068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInput
+  m_Actions: {fileID: -944628639613478452, guid: f7b097359ae833c4098f5e0de4ac3682, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Movimiento
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
