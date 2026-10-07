@@ -81,10 +81,13 @@ public class Movimiento : MonoBehaviour
             vidas++;
         }
     }
+    public void Dano()
+    {
+        vidas--;
+
+        if(vidas == 0)
+        {
+            Debug.Log("Personaje muere");
+        }
+    }
 }
-
-//    public void Dano()
-//    {
-
-//    }
-//}

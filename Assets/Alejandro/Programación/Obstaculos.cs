@@ -12,7 +12,7 @@ public class Obstaculos : MonoBehaviour
             Movimiento player = other.GetComponent<Movimiento>();
             if (player != null)
             {
-                //player.Dano();
+                player.Dano();
             }
         }
     }
