@@ -8,6 +8,7 @@ public class Movimiento : MonoBehaviour
     public int lateral;    //Cuanto se ha movido el jugador a los lados
     public int carril;     //En que carril se encuentra el jugador
     public Vector3 posicionPersonaje;  //Posicion del jugador
+    public Transform PosicionInicial;  //Posicion inicial del jugador
 
     int posicionZ;  //En que lugar se encuentra el jugador en el eje Z
 
@@ -88,6 +89,7 @@ public class Movimiento : MonoBehaviour
         if(vidas == 0)
         {
             Debug.Log("Personaje muere");
+            transform.position = PosicionInicial.position;
         }
     }
 }
