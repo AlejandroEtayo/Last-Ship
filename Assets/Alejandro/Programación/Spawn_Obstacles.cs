@@ -5,8 +5,8 @@ public class Spawn_Obstacles : MonoBehaviour
     // Velocidad de movimiento
     public float speed = 5.0f;
     // Referencia al trigger para reutilizar los objetos
-    public GameObject TriggerObstaclesE;
-    public Transform TriggerObstaclesS;
+    public GameObject TriggerObstaclesEntrada;
+    public Transform TriggerObstaclesSalida;
     // Referencia al objeto, en este caso los enemigos (obstaculos)
     public GameObject Enemy;
     // Dirección del movimiento
@@ -19,9 +19,9 @@ public class Spawn_Obstacles : MonoBehaviour
     // Hacer que cuando se toque el limite, el objeto vuelva al principio de su posicion
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == TriggerObstaclesE)
+        if (other.gameObject == TriggerObstaclesEntrada)
         {
-            transform.position = TriggerObstaclesS.position; 
+            transform.position = TriggerObstaclesSalida.position; 
         }
     }
 }
