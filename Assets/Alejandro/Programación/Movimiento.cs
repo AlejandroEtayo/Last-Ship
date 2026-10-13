@@ -9,6 +9,7 @@ public class Movimiento : MonoBehaviour
     public int carril;     //En que carril se encuentra el jugador
     public Vector3 posicionPersonaje;  //Posicion del jugador
     public Transform PosicionInicial;  //Posicion inicial del jugador
+    public World world;
 
     int posicionZ;  //En que lugar se encuentra el jugador en el eje Z
 
@@ -37,9 +38,8 @@ public class Movimiento : MonoBehaviour
         posicionZ++;
         if (posicionZ > carril)
         {
-
-
             carril = posicionZ;
+            world.CrearSuelo();
         }
         Posicion();
     }
@@ -52,27 +52,20 @@ public class Movimiento : MonoBehaviour
         }
         else if (posicionZ < carril - 4)
         {
-
-
             vidas = 0;
         }
         Posicion();
     }
     public void OnIzquierda(InputValue input)           //El jugador tiene un límite máximo de seis pasos tanto a la izquierda como a la derecha gracias al clamp, la direccion pide hacia donde se ha movido el jugador y realiza la operación con la variable lateral 
     {
-
-
         posicionX--;
 
         Posicion();
-
     }
     public void OnDerecha(InputValue input)
     {
-
         posicionX++;
         Posicion();
-
     }
     public void Curar()
     {
