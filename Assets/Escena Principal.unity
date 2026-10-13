@@ -175,6 +175,10 @@ PrefabInstance:
       propertyPath: WorldUpOverride
       value: 
       objectReference: {fileID: 179833260}
+    - target: {fileID: 6939977749537422994, guid: f48283771116d104984c96e350afc546, type: 3}
+      propertyPath: velocidadAvance
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -413,7 +417,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2730731428169995100, guid: dd21d53cd5329cc44ab7ad49b3b944a8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.24
       objectReference: {fileID: 0}
     - target: {fileID: 2730731428169995100, guid: dd21d53cd5329cc44ab7ad49b3b944a8, type: 3}
       propertyPath: m_LocalPosition.z

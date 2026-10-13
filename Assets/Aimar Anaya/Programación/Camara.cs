@@ -3,7 +3,7 @@ using UnityEngine;
 public class CamaraSeguimiento : MonoBehaviour
 {
     [Header("Movimiento Automático")]
-    public float velocidadAvance = 3f;
+    public float velocidadAvance = 2f;
 
     void Update()
     {
