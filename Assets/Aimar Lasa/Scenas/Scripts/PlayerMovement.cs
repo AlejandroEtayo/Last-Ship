@@ -13,6 +13,8 @@ public class PlayerMovement : MonoBehaviour
     private float tamanoCasilla = 1f;
     private float posicionInicialZ;
 
+    public int vidas = 3;      //Las vidas del jugador
+
     void Start()
     {
         posicionInicialZ = transform.position.z;
@@ -108,4 +110,13 @@ public class PlayerMovement : MonoBehaviour
         muerto = true;
         StopAllCoroutines();
     }
+
+    public void Curar()
+    {
+        if (vidas < 3)
+        {
+
+                vidas++;
+            }
+       }
 }

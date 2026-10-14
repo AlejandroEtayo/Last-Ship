@@ -365,7 +365,7 @@ Transform:
   m_GameObject: {fileID: 1236995126}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.8729, y: -0.28, z: -2.5076}
+  m_LocalPosition: {x: 2.8729, y: 0, z: -2.5076}
   m_LocalScale: {x: 27.4685, y: 0.13816, z: 17.07889}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1122,7 +1122,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2730731428169995100, guid: dd21d53cd5329cc44ab7ad49b3b944a8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2730731428169995100, guid: dd21d53cd5329cc44ab7ad49b3b944a8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1156,6 +1156,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3156815817888112260, guid: dd21d53cd5329cc44ab7ad49b3b944a8, type: 3}
+      propertyPath: world
+      value: 
+      objectReference: {fileID: 1546173866}
+    - target: {fileID: 3156815817888112260, guid: dd21d53cd5329cc44ab7ad49b3b944a8, type: 3}
+      propertyPath: sensorAtras
+      value: 
+      objectReference: {fileID: 5786420127435163189}
+    - target: {fileID: 3156815817888112260, guid: dd21d53cd5329cc44ab7ad49b3b944a8, type: 3}
+      propertyPath: sensorDerecha
+      value: 
+      objectReference: {fileID: 5786420127435163187}
+    - target: {fileID: 3156815817888112260, guid: dd21d53cd5329cc44ab7ad49b3b944a8, type: 3}
+      propertyPath: sensorAdelante
+      value: 
+      objectReference: {fileID: 5786420127435163190}
+    - target: {fileID: 3156815817888112260, guid: dd21d53cd5329cc44ab7ad49b3b944a8, type: 3}
+      propertyPath: PosicionInicial
+      value: 
+      objectReference: {fileID: 1988330388}
+    - target: {fileID: 3156815817888112260, guid: dd21d53cd5329cc44ab7ad49b3b944a8, type: 3}
+      propertyPath: sensorIzquierda
+      value: 
+      objectReference: {fileID: 5786420127435163188}
     - target: {fileID: 4275479393505170068, guid: dd21d53cd5329cc44ab7ad49b3b944a8, type: 3}
       propertyPath: m_Name
       value: PJ
@@ -1165,6 +1189,50 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd21d53cd5329cc44ab7ad49b3b944a8, type: 3}
+--- !u!114 &5786420127435163187 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6798915239230117896, guid: dd21d53cd5329cc44ab7ad49b3b944a8, type: 3}
+  m_PrefabInstance: {fileID: 5786420127435163186}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c8e0f336f8ca6e4798987034314ba6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MovimientoSensor
+--- !u!114 &5786420127435163188 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3127753052909366360, guid: dd21d53cd5329cc44ab7ad49b3b944a8, type: 3}
+  m_PrefabInstance: {fileID: 5786420127435163186}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c8e0f336f8ca6e4798987034314ba6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MovimientoSensor
+--- !u!114 &5786420127435163189 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6502017044611739179, guid: dd21d53cd5329cc44ab7ad49b3b944a8, type: 3}
+  m_PrefabInstance: {fileID: 5786420127435163186}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c8e0f336f8ca6e4798987034314ba6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MovimientoSensor
+--- !u!114 &5786420127435163190 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6026964056504740216, guid: dd21d53cd5329cc44ab7ad49b3b944a8, type: 3}
+  m_PrefabInstance: {fileID: 5786420127435163186}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c8e0f336f8ca6e4798987034314ba6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MovimientoSensor
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -1,7 +1,8 @@
-using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.InputSystem;
+
 
 public class Movimiento : MonoBehaviour
 {
@@ -16,6 +17,12 @@ public class Movimiento : MonoBehaviour
     int posicionX;  //En que lugar se encuentra el jugador en el eje X
 
     public int vidas = 3;      //Las vidas del jugador
+
+    //Detectan si hay una colisión delante del personaje
+    public MovimientoSensor sensorAdelante;
+    public MovimientoSensor sensorAtras;
+    public MovimientoSensor sensorIzquierda;
+    public MovimientoSensor sensorDerecha;
     void Start()
     {
 
@@ -35,16 +42,22 @@ public class Movimiento : MonoBehaviour
 
     public void OnAvanzar(InputValue input)                //El jugador avanza de carril en carril y el record máximo no se borra la retroceder
     {
+        if (sensorAdelante.bloqueado)
+            return;
+
         posicionZ++;
-        if (posicionZ > carril)
-        {
-            carril = posicionZ;
-            world.CrearSuelo();
-        }
-        Posicion();
+            if (posicionZ > carril)
+            {
+                carril = posicionZ;
+                world.CrearSuelo();
+            }
+            Posicion();
     }
     public void OnRetroceder(InputValue input)           //El jugador tiene un límite máximo de cuatro carriles para retroceder, este límite depende del record máximo que haya alcanzado el jugador
     {
+        if (sensorAtras.bloqueado)
+            return;
+
         if (posicionZ > carril - 4)
         {
 
@@ -58,12 +71,18 @@ public class Movimiento : MonoBehaviour
     }
     public void OnIzquierda(InputValue input)           //El jugador tiene un límite máximo de seis pasos tanto a la izquierda como a la derecha gracias al clamp, la direccion pide hacia donde se ha movido el jugador y realiza la operación con la variable lateral 
     {
+        if (sensorIzquierda.bloqueado)
+            return;
+
         posicionX--;
 
         Posicion();
     }
     public void OnDerecha(InputValue input)
     {
+        if (sensorDerecha.bloqueado)
+            return;
+
         posicionX++;
         Posicion();
     }
@@ -79,7 +98,7 @@ public class Movimiento : MonoBehaviour
     {
         vidas--;
 
-        if(vidas == 0)
+        if (vidas == 0)
         {
             Debug.Log("Personaje muere");
             transform.position = PosicionInicial.position;
