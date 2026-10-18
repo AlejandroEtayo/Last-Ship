@@ -1092,9 +1092,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1991553600}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 740f5eb410fe39f41b49b861dbbe1cfb, type: 3}
+  m_Script: {fileID: 11500000, guid: f56d962bc54cc2e47a957394a5a08728, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Spawn_Obstacles
+  m_EditorClassIdentifier: Assembly-CSharp::Spawn_Enemies
   speed: 5
   TriggerObstaclesEntrada: {fileID: 1136434983}
   TriggerObstaclesSalida: {fileID: 1940931847}
@@ -1246,8 +1246,8 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1694325656}
-  - {fileID: 1236995131}
   - {fileID: 1629965208}
+  - {fileID: 1236995131}
   - {fileID: 5786420127435163186}
   - {fileID: 1991553604}
   - {fileID: 1136434988}

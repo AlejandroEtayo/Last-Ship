@@ -70,12 +70,12 @@ public class Movimiento : MonoBehaviour
         Debug.Log("El personaje Avanza");
 
         posicionZ++;
-            if (posicionZ > carril)
-            {
-                carril = posicionZ;
-                world.CrearSuelo();
-            }
-            Posicion();
+        if (posicionZ > carril)
+        {
+            carril = posicionZ;
+            world.CrearSuelo();
+        }
+        Posicion();
     }
     public void OnRetroceder(InputValue input)           //El jugador tiene un límite máximo de cuatro carriles para retroceder, este límite depende del record máximo que haya alcanzado el jugador
     {

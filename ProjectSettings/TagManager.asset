@@ -8,6 +8,7 @@ TagManager:
   - TriggerObstaclesE
   - TriggerObstaclesS
   - Coche
+  - Obstaculo
   layers:
   - Default
   - TransparentFX
