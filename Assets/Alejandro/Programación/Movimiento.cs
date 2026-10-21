@@ -2,18 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro; // Para TextMesh Pro
 
 
 public class Movimiento : MonoBehaviour
 {
     public InputValue inputValue;  
     public int lateral;    //Cuanto se ha movido el jugador a los lados
-    public int carril;     //En que carril se encuentra el jugador
+    public int carril;     //En que carril se encuentra el record del jugador
     public Vector3 posicionPersonaje;  //Posicion del jugador
     public Transform PosicionInicial;  //Posicion inicial del jugador
     public World world;  //Referencia al script World para poder crear el suelo
     public float velocidadMovimiento = 5f;     //Velocidad a la que se mueve el jugador
-    int posicionZ;  //En que lugar se encuentra el jugador en el eje Z
+    public int posicionZ;  //En que lugar se encuentra el jugador en el eje Z
 
     int posicionX;  //En que lugar se encuentra el jugador en el eje X
 
@@ -41,6 +42,10 @@ public class Movimiento : MonoBehaviour
         // Se guarda la altura inicial
         destino.y = rb.position.y;
     }
+    //private void Update()
+    //{
+        
+    //}
     void FixedUpdate()
     {
         // Se calcula la posición sin alterar la altura del jugador
