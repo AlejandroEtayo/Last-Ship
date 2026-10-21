@@ -432,11 +432,12 @@ MonoBehaviour:
   PosicionInicial: {fileID: 0}
   world: {fileID: 0}
   velocidadMovimiento: 5
+  posicionZ: 0
   vidas: 3
-  sensorAdelante: {fileID: 0}
-  sensorAtras: {fileID: 0}
-  sensorIzquierda: {fileID: 0}
-  sensorDerecha: {fileID: 0}
+  sensorAdelante: {fileID: 6026964056504740216}
+  sensorAtras: {fileID: 6502017044611739179}
+  sensorIzquierda: {fileID: 3127753052909366360}
+  sensorDerecha: {fileID: 6798915239230117896}
 --- !u!54 &8190055065274998416
 Rigidbody:
   m_ObjectHideFlags: 0
