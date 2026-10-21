@@ -17,6 +17,9 @@ public class Movimiento : MonoBehaviour
     public int posicionZ;  //En que lugar se encuentra el jugador en el eje Z
 
     int posicionX;  //En que lugar se encuentra el jugador en el eje X
+    
+    public float cooldownMovimiento = 0.2f;   //Cooldown para evitar movimientos demasiado rápidos y diagonales
+    private float siguienteMovimiento = 0f;
 
     public int vidas = 3;      //Las vidas del jugador
 
@@ -54,6 +57,14 @@ public class Movimiento : MonoBehaviour
         // se mueve el Rigibody
         rb.MovePosition(siguientePosicion);
     }
+    private bool PuedeMoverse()
+    {
+        if (Time.time < siguienteMovimiento)
+            return false;
+
+        siguienteMovimiento = Time.time + cooldownMovimiento;
+        return true;
+    }
 
     public void Posicion()
     {
@@ -69,6 +80,9 @@ public class Movimiento : MonoBehaviour
 
     public void OnAvanzar(InputValue input)                //El jugador avanza de carril en carril y el record máximo no se borra al retroceder
     {
+        if (!PuedeMoverse())
+            return;
+
         if (sensorAdelante.bloqueado)
             return;
 
@@ -84,6 +98,9 @@ public class Movimiento : MonoBehaviour
     }
     public void OnRetroceder(InputValue input)           //El jugador tiene un límite máximo de cuatro carriles para retroceder, este límite depende del record máximo que haya alcanzado el jugador
     {
+        if (!PuedeMoverse())
+            return;
+
         if (sensorAtras.bloqueado)
             return;
 
@@ -104,6 +121,9 @@ public class Movimiento : MonoBehaviour
     }
     public void OnIzquierda(InputValue input)           //El jugador se mueve lateralmente hasta que el mapa se lo impida
     {
+        if (!PuedeMoverse())
+            return;
+
         if (sensorIzquierda.bloqueado)
             return;
 
@@ -114,6 +134,9 @@ public class Movimiento : MonoBehaviour
 
     public void OnDerecha(InputValue input)
     {
+        if (!PuedeMoverse())
+            return;
+
         if (sensorDerecha.bloqueado)
             return;
 
