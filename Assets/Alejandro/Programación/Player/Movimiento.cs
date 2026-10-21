@@ -17,7 +17,8 @@ public class Movimiento : MonoBehaviour
     public int posicionZ;  //En que lugar se encuentra el jugador en el eje Z
 
     int posicionX;  //En que lugar se encuentra el jugador en el eje X
-    
+    int posicionY;  //En que lugar se encuentra el jugador en el eje Y
+
     public float cooldownMovimiento = 0.2f;   //Cooldown para evitar movimientos demasiado rápidos y diagonales
     private float siguienteMovimiento = 0f;
 
@@ -83,7 +84,7 @@ public class Movimiento : MonoBehaviour
         if (!PuedeMoverse())
             return;
 
-        if (sensorAdelante.bloqueado)
+        if (sensorAdelante.bloqueado)              //Necesito que cuando detecte una colisión o impida moverse a esa direcció o cada vez que intente ir hacia ahí, se mueva 1 coordenada al lado contrario!!!!!!!!!
             return;
 
         Debug.Log("El personaje Avanza");
@@ -166,6 +167,10 @@ public class Movimiento : MonoBehaviour
     }
     public void Dano()
     {
+        if (posicionY < 0.7)
+        {
+            Debug.Log("El personaje ha caído al vacío");
+        }
         vidas--;
 
         if (vidas == 0)
