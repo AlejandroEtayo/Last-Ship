@@ -32,6 +32,12 @@ public class Movimiento : MonoBehaviour
 
     private Rigidbody rb;  //Referencia al Rigidbody del jugador para poder moverlo con físicas
     private Vector3 destino;    //Destino al que se mueve el jugador
+    private Vector3 destinoAnterior;
+
+    private int posicionXAnterior;
+    private int posicionZAnterior;
+
+    private bool movimientoEnCurso;
 
     void Start()
     {
@@ -39,25 +45,114 @@ public class Movimiento : MonoBehaviour
 
         // Se guardala posición inicial del jugador
         destino = rb.position;
+        // Se guarda la posición anterior del jugador
+        destinoAnterior = destino;
 
         posicionX = Mathf.RoundToInt(rb.position.x);
         posicionZ = Mathf.RoundToInt(rb.position.z);
 
+        posicionZAnterior = posicionZ;
+        posicionXAnterior = posicionX;
+
         // Se guarda la altura inicial
         destino.y = rb.position.y;
     }
+
     //private void Update()
     //{
         
     //}
+
     void FixedUpdate()
     {
-        // Se calcula la posición sin alterar la altura del jugador
-        Vector3 siguientePosicion = Vector3.MoveTowards(rb.position, new Vector3(destino.x, rb.position.y, destino.z), velocidadMovimiento * Time.fixedDeltaTime);
+        if (movimientoEnCurso && DireccionBloqueada(destino - rb.position))
+        {
+            CancelarMovimiento();
+            return;
+        }
+        if (!movimientoEnCurso)
+        {
+            Vector3 velocidad = rb.linearVelocity;
+            velocidad.x = 0f;
+            velocidad.z = 0f;
+            rb.linearVelocity = velocidad;
+            return;
+        }
 
-        // se mueve el Rigibody
+        Vector3 diferencia = destino - rb.position;
+
+        // Si aparece un obstáculo en la dirección del movimiento,
+        // cancelamos el desplazamiento.
+        if (DireccionBloqueada(diferencia))
+        {
+            CancelarMovimiento();
+            return;
+        }
+
+        Vector3 siguientePosicion = Vector3.MoveTowards(
+            rb.position,
+            new Vector3(destino.x, rb.position.y, destino.z),
+            velocidadMovimiento * Time.fixedDeltaTime
+        );
+
         rb.MovePosition(siguientePosicion);
+
+        // El movimiento ha terminado.
+        if (Mathf.Abs(destino.x - siguientePosicion.x) < 0.001f &&
+            Mathf.Abs(destino.z - siguientePosicion.z) < 0.001f)
+        {
+            movimientoEnCurso = false;
+
+            Vector3 velocidad = rb.linearVelocity;
+            velocidad.x = 0f;
+            velocidad.z = 0f;
+            rb.linearVelocity = velocidad;
+        }
     }
+    private bool DireccionBloqueada(Vector3 diferencia)
+    {
+        if (diferencia.z > 0.01f)
+            return sensorAdelante != null && sensorAdelante.bloqueado;
+
+        if (diferencia.z < -0.01f)
+            return sensorAtras != null && sensorAtras.bloqueado;
+
+        if (diferencia.x < -0.01f)
+            return sensorIzquierda != null && sensorIzquierda.bloqueado;
+
+        if (diferencia.x > 0.01f)
+            return sensorDerecha != null && sensorDerecha.bloqueado;
+
+        return false;
+    }
+    private void CancelarMovimiento()
+    {
+        // Volvemos a la última casilla válida,
+        // manteniendo la altura actual para conservar la gravedad.
+        rb.position = new Vector3(
+            destinoAnterior.x,
+            rb.position.y,
+            destinoAnterior.z
+        );
+
+        // Restauramos las coordenadas lógicas.
+        posicionX = posicionXAnterior;
+        posicionZ = posicionZAnterior;
+
+        destino = rb.position;
+        destinoAnterior = destino;
+
+        movimientoEnCurso = false;
+
+        // Eliminamos el impulso horizontal, no la caída vertical.
+        Vector3 velocidad = rb.linearVelocity;
+        velocidad.x = 0f;
+        velocidad.z = 0f;
+        rb.linearVelocity = velocidad;
+    }
+
+
+
     private bool PuedeMoverse()
     {
         if (Time.time < siguienteMovimiento)
@@ -71,6 +166,7 @@ public class Movimiento : MonoBehaviour
     {
 
         destino = new Vector3(posicionX, rb.position.y, posicionZ);
+        movimientoEnCurso = true;
         Debug.Log("El personaje se ha movido: " + destino);
 
         //posicionPersonaje = new Vector3(posicionX, 0, posicionZ);               //Se actualiza la posición del jugador en los dos ejes (X y Z)
@@ -81,10 +177,22 @@ public class Movimiento : MonoBehaviour
 
     public void OnAvanzar(InputValue input)                //El jugador avanza de carril en carril y el record máximo no se borra al retroceder
     {
+        Debug.Log("Se ha pulsado W");
+
+        Debug.Log("Movimiento en curso: " + movimientoEnCurso);
+
+        Debug.Log("Sensor delantero bloqueado: " +
+            (sensorAdelante != null && sensorAdelante.bloqueado));
+
+        if (movimientoEnCurso)
+            return;
+
         if (!PuedeMoverse())
             return;
 
-        if (sensorAdelante.bloqueado)              //Necesito que cuando detecte una colisión o impida moverse a esa direcció o cada vez que intente ir hacia ahí, se mueva 1 coordenada al lado contrario!!!!!!!!!
+        GuardarPosicionAnterior();
+
+        if (sensorAdelante != null && sensorAdelante.bloqueado)
             return;
 
         Debug.Log("El personaje Avanza");
@@ -99,10 +207,14 @@ public class Movimiento : MonoBehaviour
     }
     public void OnRetroceder(InputValue input)           //El jugador tiene un límite máximo de cuatro carriles para retroceder, este límite depende del record máximo que haya alcanzado el jugador
     {
+        if (movimientoEnCurso)
+            return;
         if (!PuedeMoverse())
             return;
 
-        if (sensorAtras.bloqueado)
+        GuardarPosicionAnterior();
+
+        if (sensorAtras != null && sensorAtras.bloqueado)
             return;
 
         Debug.Log("El personaje Retrocede");
@@ -122,11 +234,16 @@ public class Movimiento : MonoBehaviour
     }
     public void OnIzquierda(InputValue input)           //El jugador se mueve lateralmente hasta que el mapa se lo impida
     {
+        if (movimientoEnCurso)
+            return;
         if (!PuedeMoverse())
             return;
 
-        if (sensorIzquierda.bloqueado)
+        GuardarPosicionAnterior();
+
+        if (sensorIzquierda != null && sensorIzquierda.bloqueado)
             return;
+
 
         posicionX--;
         Debug.Log("El personaje se mueve a la izquierda");
@@ -135,16 +252,47 @@ public class Movimiento : MonoBehaviour
 
     public void OnDerecha(InputValue input)
     {
+        if (movimientoEnCurso)
+            return;
         if (!PuedeMoverse())
             return;
 
-        if (sensorDerecha.bloqueado)
+        GuardarPosicionAnterior();
+
+        if (sensorDerecha != null && sensorDerecha.bloqueado)
             return;
 
         posicionX++;
         Debug.Log("El personaje se mueve a la derecha");
         Posicion();
     }
+    private void GuardarPosicionAnterior()
+    {
+        destinoAnterior = destino;
+        posicionXAnterior = posicionX;
+        posicionZAnterior = posicionZ;
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (!movimientoEnCurso)
+            return;
+
+        // Si chocamos físicamente con un obstáculo,
+        // cancelamos el movimiento pendiente.
+        Transform objeto = collision.transform;
+
+        while (objeto != null)
+        {
+            if (objeto.CompareTag("Obstaculo"))
+            {
+                CancelarMovimiento();
+                return;
+            }
+
+            objeto = objeto.parent;
+        }
+    }
+
 
 
 

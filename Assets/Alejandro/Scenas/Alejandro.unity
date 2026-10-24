@@ -752,7 +752,7 @@ GameObject:
   - component: {fileID: 1487458267}
   m_Layer: 0
   m_Name: Roca
-  m_TagString: Untagged
+  m_TagString: Obstaculo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -803,7 +803,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 70fd9ebbe97623346b82462672f4d734, type: 2}
+  - {fileID: 2100000, guid: b7c9d658a82883e4db8004aef3fcdb68, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -844,7 +844,7 @@ Transform:
   m_GameObject: {fileID: 1487458262}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2, y: 1, z: 4}
+  m_LocalPosition: {x: 2, y: 1, z: 6}
   m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_ConstrainProportionsScale: 0
   m_Children: []
