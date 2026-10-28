@@ -295,36 +295,41 @@ public class Movimiento : MonoBehaviour
 
 
 
-
-
-
-
-
-
-
-
-
-
-    public void Curar()
+    private void OnTriggerEnter(Collider other)    //Todas las funciones de trigger (curar, dañar, muerte)
     {
-        if (vidas < 3)
+        Debug.Log("Objeto detectado: " + other.name);
+
+        if (other.CompareTag("Enemy"))
         {
+            Debug.Log("Personaje dañado");
+            vidas--;
 
-            vidas++;
+            Debug.Log("Vidas restantes: " + vidas);
+
+            Destroy(other.gameObject);
+
+            if (vidas <= 0)
+            {
+                Debug.Log("El personaje ha muerto");
+                transform.position = PosicionInicial.position;
+            }
         }
-    }
-    public void Dano()
-    {
-        if (posicionY < 0.7)
+
+        else if (other.CompareTag("Spring"))
+        {
+            Debug.Log("Personaje curado");
+            Destroy(other.gameObject);
+
+            if (vidas < 3)
+            {
+                vidas++;
+            }
+        }
+
+        else if (other.CompareTag("DeathZone"))
         {
             Debug.Log("El personaje ha caído al vacío");
-        }
-        vidas--;
-
-        if (vidas == 0)
-        {
-            Debug.Log("Personaje muere");
-            transform.position = PosicionInicial.position;
+            vidas = 0;
         }
     }
 }

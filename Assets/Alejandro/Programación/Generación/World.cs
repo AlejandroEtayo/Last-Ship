@@ -37,4 +37,20 @@ public class World : MonoBehaviour
 
         carril++;
     }
+
+    public GameObject ObtenerOCrearCarril(Vector3 posicionGeneracion, GameObject prefabCarril)
+    {
+        GameObject carril = GestorFIFO.Instancia.ObtenerCarril();
+
+        if (carril == null)
+        {
+            carril = Instantiate(prefabCarril);
+        }
+
+        carril.transform.position = posicionGeneracion;
+        carril.transform.rotation = Quaternion.identity;
+        carril.SetActive(true);
+
+        return carril;
+    }
 }

@@ -7,8 +7,9 @@ TagManager:
   - Enemy
   - TriggerObstaclesE
   - TriggerObstaclesS
-  - Coche
   - Obstaculo
+  - Spring
+  - DeathZone
   layers:
   - Default
   - TransparentFX
