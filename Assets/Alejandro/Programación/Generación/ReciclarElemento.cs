@@ -6,7 +6,9 @@ public class ElementoReciclable : MonoBehaviour
     public enum TipoElemento
     {
         Carril,
-        Obstaculo
+        Obstaculo,
+        DeathZone,
+        Enemy,
     }
 
     public TipoElemento tipo;
