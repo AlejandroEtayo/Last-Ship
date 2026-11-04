@@ -24,16 +24,37 @@ public class World : MonoBehaviour
         if (suelo == null || suelo.Length == 0)
             return;
 
-        GameObject prefab = suelo[Random.Range(0, suelo.Length)];
-
-        // El centro de cada carril se sitúa a una unidad del anterior.
         Vector3 posicion = new Vector3(
             0f,
             0f,
             carril * longitudCarril
         );
 
-        Instantiate(prefab, posicion, Quaternion.identity);
+        GameObject nuevoCarril = null;
+
+        // Intentar recuperar un carril reciclado
+        if (GestorFIFO.Instancia != null)
+        {
+            nuevoCarril = GestorFIFO.Instancia.ObtenerCarril();
+        }
+
+        // Si no hay carriles reciclados, crear uno nuevo
+        if (nuevoCarril == null)
+        {
+            GameObject prefab = suelo[Random.Range(0, suelo.Length)];
+
+            nuevoCarril = Instantiate(
+                prefab,
+                posicion,
+                Quaternion.identity
+            );
+        }
+        else
+        {
+            nuevoCarril.transform.position = posicion;
+            nuevoCarril.transform.rotation = Quaternion.identity;
+            nuevoCarril.SetActive(true);
+        }
 
         carril++;
     }

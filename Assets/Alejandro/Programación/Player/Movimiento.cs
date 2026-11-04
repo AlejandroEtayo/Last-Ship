@@ -316,7 +316,7 @@ public class Movimiento : MonoBehaviour
     }
     //////////////////////////////////////////////////////////////////////////
 
-    private void OnTriggerEnter(Collider other)    //Todas las funciones de trigger (curar, dañar, muerte)
+    private void OnTriggerEnter(Collider other)    //Todas las funciones de trigger muerte
     {
         Debug.Log("Objeto detectado: " + other.name);
 

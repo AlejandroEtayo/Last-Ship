@@ -1,14 +1,14 @@
 using UnityEngine;
 
-//Con este script se puede marcar un elemento como reciclable, para que el gestor de elementos pueda reutilizarlo en lugar de destruirlo y crear uno nuevo.
-public class ElementoReciclable : MonoBehaviour
+
+public class ReciclarElemento : MonoBehaviour
 {
     public enum TipoElemento
     {
         Carril,
         Obstaculo,
-        DeathZone,
         Enemy,
+        DeathZone,
     }
 
     public TipoElemento tipo;
@@ -16,4 +16,3 @@ public class ElementoReciclable : MonoBehaviour
     [HideInInspector]
     public bool enCola = false;
 }
-
