@@ -10,6 +10,7 @@ public class Movimiento : MonoBehaviour
     public InputValue inputValue;  
     public int lateral;    //Cuanto se ha movido el jugador a los lados
     public int carril;     //En que carril se encuentra el record del jugador
+    public int record;    //Record del jugador para la puntuación máxima
     public Vector3 posicionPersonaje;  //Posicion del jugador
     public Transform PosicionInicial;  //Posicion inicial del jugador
     public World world;  //Referencia al script World para poder crear el suelo
@@ -56,6 +57,10 @@ public class Movimiento : MonoBehaviour
 
         // Se guarda la altura inicial
         destino.y = rb.position.y;
+
+        //La puntuación del record del jugador, se guarda en PlayerPrefs para que no se pierda al cerrar el juego
+        record = PlayerPrefs.GetInt("HighScore", 0);
+        Debug.Log("El récord actual es: " + record);
     }
 
     //private void Update()
@@ -293,7 +298,23 @@ public class Movimiento : MonoBehaviour
         }
     }
 
+    //////////////////////////////////////////////////////////////////////////
 
+    public void EvaluarPuntos(int puntos)
+    {
+        if (puntos > record)
+        {
+            record = puntos;
+            PlayerPrefs.SetInt("HighScore", record);
+            PlayerPrefs.Save();
+            Debug.Log("¡Nuevo récord: " + record);
+        }
+        else
+        {
+            Debug.Log("Te quedaste corto.");
+        }
+    }
+    //////////////////////////////////////////////////////////////////////////
 
     private void OnTriggerEnter(Collider other)    //Todas las funciones de trigger (curar, dañar, muerte)
     {
@@ -312,17 +333,8 @@ public class Movimiento : MonoBehaviour
             {
                 Debug.Log("El personaje ha muerto");
                 transform.position = PosicionInicial.position;
-            }
-        }
-
-        else if (other.CompareTag("Spring"))
-        {
-            Debug.Log("Personaje curado");
-            Destroy(other.gameObject);
-
-            if (vidas < 3)
-            {
-                vidas++;
+                
+                EvaluarPuntos(carril);  //La puntuación que se evalua es la de Carril, que es la posición máxima que ha alcanzado el jugador en el eje Z
             }
         }
 

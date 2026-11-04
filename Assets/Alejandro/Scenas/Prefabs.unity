@@ -296,7 +296,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5165119979737408743, guid: d48a1abb3b48abd4cad0548732d76587, type: 3}
       propertyPath: m_Name
-      value: Tierra
+      value: Hierba
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
