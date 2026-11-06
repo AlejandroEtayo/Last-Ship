@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 9174326264114683691}
   - component: {fileID: 7216228342900909550}
   - component: {fileID: 2711007066325472207}
+  - component: {fileID: 8272867790464987645}
   m_Layer: 0
   m_Name: Asteroide
   m_TagString: Enemy
@@ -130,3 +131,17 @@ MonoBehaviour:
   TriggerObstaclesSalida: {fileID: 0}
   Enemy: {fileID: 3130680985362742626}
   direccion: {x: -1, y: 0, z: 0}
+--- !u!114 &8272867790464987645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3130680985362742626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2257281ac416cef40b0cb4c1e2c1610a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ReciclarElemento
+  tipo: 2
+  enCola: 0

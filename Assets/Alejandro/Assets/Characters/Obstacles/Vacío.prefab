@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3425905708983903286}
   - component: {fileID: 688748633105002948}
   - component: {fileID: 8801169261572429302}
+  - component: {fileID: 210414787753687015}
   m_Layer: 0
   m_Name: "Vac\xEDo"
   m_TagString: DeathZone
@@ -112,3 +113,17 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &210414787753687015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4274138708065722480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2257281ac416cef40b0cb4c1e2c1610a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ReciclarElemento
+  tipo: 3
+  enCola: 0
