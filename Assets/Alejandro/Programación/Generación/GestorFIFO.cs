@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class GestorFIFO : MonoBehaviour
 {
     public static GestorFIFO Instancia;

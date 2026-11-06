@@ -8,6 +8,7 @@ public class World : MonoBehaviour
     //Cantidad de carriles que se generan al inicio del juego
     public int SueloSpawn;
 
+
     private float siguienteZ = 0f;
 
     private const float longitudCarril = 1f;
@@ -16,6 +17,7 @@ public class World : MonoBehaviour
         for (int i = 0; i < SueloSpawn; i++)
         {
             CrearSuelo();
+
         }
     }
 
@@ -43,11 +45,7 @@ public class World : MonoBehaviour
         {
             GameObject prefab = suelo[Random.Range(0, suelo.Length)];
 
-            nuevoCarril = Instantiate(
-                prefab,
-                posicion,
-                Quaternion.identity
-            );
+            nuevoCarril = Instantiate(prefab, posicion, Quaternion.identity);
         }
         else
         {
@@ -56,22 +54,47 @@ public class World : MonoBehaviour
             nuevoCarril.SetActive(true);
         }
 
+
+        //Generar asteroides en el carril 
+        SpawnEnemigos generador =
+           nuevoCarril.GetComponent<SpawnEnemigos>();
+
+        if (generador != null)
+        {
+            generador.GenerarObjeto();
+        }
+
         carril++;
     }
 
     public GameObject ObtenerOCrearCarril(Vector3 posicionGeneracion, GameObject prefabCarril)
     {
-        GameObject carril = GestorFIFO.Instancia.ObtenerCarril();
+        GameObject nuevoCarril = null;
 
-        if (carril == null)
+        if (GestorFIFO.Instancia != null)
         {
-            carril = Instantiate(prefabCarril);
+            nuevoCarril = GestorFIFO.Instancia.ObtenerCarril();
         }
 
-        carril.transform.position = posicionGeneracion;
-        carril.transform.rotation = Quaternion.identity;
-        carril.SetActive(true);
+        if (nuevoCarril == null)
+        {
+            nuevoCarril = Instantiate(prefabCarril);
+        }
 
-        return carril;
+        nuevoCarril.transform.position = posicionGeneracion;
+        nuevoCarril.transform.rotation = Quaternion.identity;
+        nuevoCarril.SetActive(true);
+
+        // Generar también al recuperar por este método
+        SpawnEnemigos generador =
+            nuevoCarril.GetComponent<SpawnEnemigos>();
+
+        if (generador != null)
+        {
+            generador.GenerarObjeto();
+        }
+
+        return nuevoCarril;
     }
 }
+
