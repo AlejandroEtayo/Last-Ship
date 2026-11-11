@@ -1,5 +1,6 @@
 using UnityEngine;
 
+//Función para meter a los asteroides en un bucle infinito de posciones y su velocidad de movimiento
 public class Spawn_Enemies : MonoBehaviour
 {
     // Velocidad de movimiento

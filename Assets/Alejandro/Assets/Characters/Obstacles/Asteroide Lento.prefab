@@ -127,8 +127,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Spawn_Enemies
   speed: 3
-  TriggerObstaclesEntrada: {fileID: 0}
-  TriggerObstaclesSalida: {fileID: 0}
+  TriggerObstaclesEntrada: {fileID: 7723507686877273410, guid: e165eb350bd4e7148b3b09e009a5e797, type: 3}
+  TriggerObstaclesSalida: {fileID: 3573164760606143469, guid: 4c31526933da94a49b7cf8c73511d3e5, type: 3}
   Enemy: {fileID: 8907767782075034074}
   direccion: {x: -1, y: 0, z: 0}
 --- !u!114 &5204167255964705379

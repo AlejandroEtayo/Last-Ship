@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Función para generar enemigos en el juego
 public class SpawnEnemigos : MonoBehaviour
 {
     //Variable para la lista de objetos a generar

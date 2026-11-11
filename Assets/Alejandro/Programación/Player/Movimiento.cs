@@ -11,6 +11,7 @@ public class Movimiento : MonoBehaviour
     public int lateral;    //Cuanto se ha movido el jugador a los lados
     public int carril;     //En que carril se encuentra el record del jugador
     public int record;    //Record del jugador para la puntuación máxima
+    public Score score;  //Referencia al script Score para poder evaluar la puntuación del jugador
     public Vector3 posicionPersonaje;  //Posicion del jugador
     public Transform PosicionInicial;  //Posicion inicial del jugador
     public World world;  //Referencia al script World para poder crear el suelo
@@ -299,21 +300,20 @@ public class Movimiento : MonoBehaviour
     }
 
     //////////////////////////////////////////////////////////////////////////
-
-    public void EvaluarPuntos(int puntos)
-    {
-        if (puntos > record)
-        {
-            record = puntos;
-            PlayerPrefs.SetInt("HighScore", record);
-            PlayerPrefs.Save();
-            Debug.Log("¡Nuevo récord: " + record);
-        }
-        else
-        {
-            Debug.Log("Te quedaste corto.");
-        }
-    }
+    //public void EvaluarPuntos(int puntos)
+    //{
+    //    if (puntos > record)
+    //    {
+    //        record = puntos;
+    //        PlayerPrefs.SetInt("HighScore", record);
+    //        PlayerPrefs.Save();
+    //        Debug.Log("¡Nuevo récord: " + record);
+    //    }
+    //    else
+    //    {
+    //        Debug.Log("Te quedaste corto.");
+    //    }
+    //}
     //////////////////////////////////////////////////////////////////////////
 
     private void OnTriggerEnter(Collider other)    //Todas las funciones de trigger muerte
@@ -334,7 +334,7 @@ public class Movimiento : MonoBehaviour
                 Debug.Log("El personaje ha muerto");
                 transform.position = PosicionInicial.position;
                 
-                EvaluarPuntos(carril);  //La puntuación que se evalua es la de Carril, que es la posición máxima que ha alcanzado el jugador en el eje Z
+                score.EvaluarPuntos(record);  //La puntuación que se evalua es la de Carril, que es la posición máxima que ha alcanzado el jugador en el eje Z
             }
         }
 

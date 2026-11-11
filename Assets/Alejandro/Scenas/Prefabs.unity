@@ -311,6 +311,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2711007066325472207, guid: 8faafe2d75836b64f8108d892dd99568, type: 3}
+      propertyPath: TriggerObstaclesSalida
+      value: 
+      objectReference: {fileID: 1489642744}
+    - target: {fileID: 2711007066325472207, guid: 8faafe2d75836b64f8108d892dd99568, type: 3}
+      propertyPath: TriggerObstaclesEntrada
+      value: 
+      objectReference: {fileID: 1030062077}
     - target: {fileID: 3130680985362742626, guid: 8faafe2d75836b64f8108d892dd99568, type: 3}
       propertyPath: m_Name
       value: Asteroide
@@ -360,6 +368,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8faafe2d75836b64f8108d892dd99568, type: 3}
+--- !u!1 &1030062077 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8117209558917258713, guid: a601500b6f0f00a48b3f706cfb1b4996, type: 3}
+  m_PrefabInstance: {fileID: 1480465220}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1120623923 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3130680985362742626, guid: 8faafe2d75836b64f8108d892dd99568, type: 3}
@@ -527,6 +540,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4964116081831170864, guid: a601500b6f0f00a48b3f706cfb1b4996, type: 3}
+      propertyPath: LugarSpawn
+      value: 
+      objectReference: {fileID: 1559804684}
+    - target: {fileID: 4964116081831170864, guid: a601500b6f0f00a48b3f706cfb1b4996, type: 3}
+      propertyPath: objetos.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964116081831170864, guid: a601500b6f0f00a48b3f706cfb1b4996, type: 3}
+      propertyPath: 'objetos.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1120623923}
+    - target: {fileID: 4964116081831170864, guid: a601500b6f0f00a48b3f706cfb1b4996, type: 3}
+      propertyPath: 'objetos.Array.data[1]'
+      value: 
+      objectReference: {fileID: 3130680985352440625}
+    - target: {fileID: 4964116081831170864, guid: a601500b6f0f00a48b3f706cfb1b4996, type: 3}
+      propertyPath: 'objetos.Array.data[2]'
+      value: 
+      objectReference: {fileID: 3130680984049114409}
     - target: {fileID: 7139473256796585414, guid: a601500b6f0f00a48b3f706cfb1b4996, type: 3}
       propertyPath: m_Name
       value: Marte Variant
@@ -534,38 +567,18 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8207558276179417005, guid: a601500b6f0f00a48b3f706cfb1b4996, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1645163780}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a601500b6f0f00a48b3f706cfb1b4996, type: 3}
+--- !u!4 &1489642744 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3644515635278210656, guid: a601500b6f0f00a48b3f706cfb1b4996, type: 3}
+  m_PrefabInstance: {fileID: 1480465220}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1559804684 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6400924110223904442, guid: a601500b6f0f00a48b3f706cfb1b4996, type: 3}
   m_PrefabInstance: {fileID: 1480465220}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1645163778 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8207558276179417005, guid: a601500b6f0f00a48b3f706cfb1b4996, type: 3}
-  m_PrefabInstance: {fileID: 1480465220}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1645163780
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1645163778}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f9bbb91d15facc42864b9e2c3dd6bce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SpawnEnemigos
-  objetos:
-  - {fileID: 1120623923}
-  - {fileID: 3130680985352440625}
-  - {fileID: 3130680984049114409}
-  LugarSpawn: {fileID: 1559804684}
 --- !u!1001 &1806640133
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -875,6 +888,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6160498219371645311, guid: d18dc84f1db0d2e429d1f2b221b13ae7, type: 3}
+      propertyPath: TriggerObstaclesSalida
+      value: 
+      objectReference: {fileID: 1489642744}
+    - target: {fileID: 6160498219371645311, guid: d18dc84f1db0d2e429d1f2b221b13ae7, type: 3}
+      propertyPath: TriggerObstaclesEntrada
+      value: 
+      objectReference: {fileID: 1030062077}
     - target: {fileID: 8907767782075034074, guid: d18dc84f1db0d2e429d1f2b221b13ae7, type: 3}
       propertyPath: m_Name
       value: Asteroide Lento
@@ -932,6 +953,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4026743695751141685, guid: c1c326fd0076cb740bad3e10afd5c906, type: 3}
+      propertyPath: TriggerObstaclesSalida
+      value: 
+      objectReference: {fileID: 1489642744}
+    - target: {fileID: 4026743695751141685, guid: c1c326fd0076cb740bad3e10afd5c906, type: 3}
+      propertyPath: TriggerObstaclesEntrada
+      value: 
+      objectReference: {fileID: 1030062077}
     - target: {fileID: 8740440139193769807, guid: c1c326fd0076cb740bad3e10afd5c906, type: 3}
       propertyPath: m_Name
       value: "Asteroide R\xE1pido"

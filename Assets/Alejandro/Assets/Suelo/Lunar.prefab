@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3605041670099782560}
   - component: {fileID: 7422998414574946422}
   - component: {fileID: 4214706610556068848}
+  - component: {fileID: 2169671986883827782}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -112,6 +113,23 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2169671986883827782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5574917576651054031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be3d55d9ced22ec48895c759d89aaf32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpawnRocas
+  ObstaculoRoca:
+  - {fileID: 4494077170737584114, guid: 194fb230a3584cd4eba2b251e73361f6, type: 3}
+  posicionInicial: 5
+  posicionFinal: 15
+  probabilidadObstaculo: 0.5
 --- !u!1 &7469562373203485425
 GameObject:
   m_ObjectHideFlags: 0
