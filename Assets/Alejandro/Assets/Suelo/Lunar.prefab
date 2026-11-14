@@ -128,8 +128,8 @@ MonoBehaviour:
   ObstaculoRoca:
   - {fileID: 4494077170737584114, guid: 194fb230a3584cd4eba2b251e73361f6, type: 3}
   posicionInicial: 5
-  posicionFinal: 15
-  probabilidadObstaculo: 0.5
+  posicionFinal: 20
+  probabilidadObstaculo: 0.25
 --- !u!1 &7469562373203485425
 GameObject:
   m_ObjectHideFlags: 0
