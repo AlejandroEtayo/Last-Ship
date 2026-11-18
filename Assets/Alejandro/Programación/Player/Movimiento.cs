@@ -322,26 +322,11 @@ public class Movimiento : MonoBehaviour
 
         if (other.CompareTag("Enemy"))
         {
-            Debug.Log("Personaje dañado");
-            vidas--;
-
-            Debug.Log("Vidas restantes: " + vidas);
-
             Destroy(other.gameObject);
-
-            if (vidas <= 0)
-            {
-                Debug.Log("El personaje ha muerto");
-                transform.position = PosicionInicial.position;
-                
-                score.EvaluarPuntos(record);  //La puntuación que se evalua es la de Carril, que es la posición máxima que ha alcanzado el jugador en el eje Z
-            }
-        }
-
-        else if (other.CompareTag("DeathZone"))
-        {
-            Debug.Log("El personaje ha caído al vacío");
-            vidas = 0;
+            Debug.Log("El personaje ha muerto");
+            transform.position = PosicionInicial.position;
+            score.EvaluarPuntos(record);  //La puntuación que se evalua es la de Carril, que es la posición máxima que ha alcanzado el jugador en el eje Z
+            
         }
     }
 }

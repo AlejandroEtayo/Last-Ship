@@ -1,0 +1,37 @@
+﻿using UnityEngine;
+
+// Funcion para detectar cuando un asteroide toca al jugador
+private void OnCollisionEnter(Collision collision)
+{
+    if (collision.gameObject.CompareTag("Enemy"))
+    {
+        Debug.Log("El personaje ha muerto");
+
+        vidas--;
+
+        if (vidas <= 0)
+        {
+            Debug.Log("No quedan vidas");
+        }
+
+        // Volvemos a la posicion inicial
+        rb.position = PosicionInicial.position;
+
+        // Reiniciamos el movimiento
+        rb.linearVelocity = Vector3.zero;
+
+        movimientoEnCurso = false;
+
+        destino = rb.position;
+        destinoAnterior = destino;
+
+        posicionX = Mathf.RoundToInt(rb.position.x);
+        posicionZ = Mathf.RoundToInt(rb.position.z);
+
+        posicionXAnterior = posicionX;
+        posicionZAnterior = posicionZ;
+
+        // Evaluamos los puntos conseguidos
+        score.EvaluarPuntos(record);
+    }
+}
