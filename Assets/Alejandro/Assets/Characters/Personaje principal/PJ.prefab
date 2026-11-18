@@ -442,6 +442,7 @@ MonoBehaviour:
   lateral: 0
   carril: 0
   record: 0
+  score: {fileID: 0}
   posicionPersonaje: {x: 0, y: 0, z: 0}
   PosicionInicial: {fileID: 0}
   world: {fileID: 0}
@@ -888,6 +889,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8897093224900880590, guid: 48c63a3126a6fea41811db402b4332b5, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5223614
+      objectReference: {fileID: 0}
+    - target: {fileID: 8897093224900880590, guid: 48c63a3126a6fea41811db402b4332b5, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.59212625
+      objectReference: {fileID: 0}
+    - target: {fileID: 8897093224900880590, guid: 48c63a3126a6fea41811db402b4332b5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -897,7 +906,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8897093224900880590, guid: 48c63a3126a6fea41811db402b4332b5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.097555
       objectReference: {fileID: 0}
     - target: {fileID: 8897093224900880590, guid: 48c63a3126a6fea41811db402b4332b5, type: 3}
       propertyPath: m_LocalRotation.w
