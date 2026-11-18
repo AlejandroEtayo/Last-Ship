@@ -259,7 +259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de8ccc620bfa8404988c0fe56f20eaf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MenuPausa
-  MenuPause: {fileID: 0}
+  MenuPause: {fileID: 745064205}
   Pausado: 0
 --- !u!1 &1166714164
 GameObject:

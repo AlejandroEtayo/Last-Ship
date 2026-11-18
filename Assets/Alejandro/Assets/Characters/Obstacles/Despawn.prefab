@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5641617953767386639}
   - component: {fileID: 3010839028117284622}
   - component: {fileID: 7578203392743132242}
+  - component: {fileID: 403991139397755521}
   m_Layer: 0
   m_Name: Despawn
   m_TagString: TriggerObstaclesE
@@ -140,3 +141,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &403991139397755521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7723507686877273410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ef27c821369d174ba30ca4f256e35fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Portal
+  TriggerObstaclesEntrada: {fileID: 7723507686877273410}
+  TriggerObstaclesSalida: {fileID: 3573164760606143469, guid: 4c31526933da94a49b7cf8c73511d3e5, type: 3}
+  Enemy:
+  - {fileID: 3130680985362742626, guid: 8faafe2d75836b64f8108d892dd99568, type: 3}
+  - {fileID: 8907767782075034074, guid: d18dc84f1db0d2e429d1f2b221b13ae7, type: 3}
+  - {fileID: 8740440139193769807, guid: c1c326fd0076cb740bad3e10afd5c906, type: 3}
