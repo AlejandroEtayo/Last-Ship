@@ -4,11 +4,14 @@ public class World : MonoBehaviour
 {
     public int carril = 0;
     public GameObject[] suelo;
+    //Este array es para crear los primeros suelos donde el jugador aprende a jugar
+    public GameObject[] sueloVacio;
 
     //Cantidad de carriles que se generan al inicio del juego
     public int SueloSpawn;
-
-
+    
+    //Falta hacer una función donde la dificultad sea un´más asequible y visualmente clara para el jugador: un ratio de spawn de carriles gestionado pro probabilidad
+    //Hacer más variantes de carril lunar para notar que es el carril más seguro
     private float siguienteZ = 0f;
 
     private const float longitudCarril = 1f;

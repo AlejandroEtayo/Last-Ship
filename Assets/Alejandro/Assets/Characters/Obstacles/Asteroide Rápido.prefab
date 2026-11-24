@@ -112,7 +112,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 0.9, y: 0.9, z: 0.9}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4026743695751141685
 MonoBehaviour:
@@ -127,9 +127,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Spawn_Enemies
   speed: 7
-  TriggerObstaclesEntrada: {fileID: 7723507686877273410, guid: e165eb350bd4e7148b3b09e009a5e797, type: 3}
-  TriggerObstaclesSalida: {fileID: 3573164760606143469, guid: 4c31526933da94a49b7cf8c73511d3e5, type: 3}
-  Enemy: {fileID: 8740440139193769807}
   direccion: {x: -1, y: 0, z: 0}
 --- !u!114 &2899342188033801500
 MonoBehaviour:

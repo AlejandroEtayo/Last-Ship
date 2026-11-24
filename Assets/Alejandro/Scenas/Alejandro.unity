@@ -1094,6 +1094,14 @@ PrefabInstance:
       propertyPath: 'suelo.Array.data[1]'
       value: 
       objectReference: {fileID: 7139473256796585414, guid: a601500b6f0f00a48b3f706cfb1b4996, type: 3}
+    - target: {fileID: 8300264823614643591, guid: 5b4fac5f65ce1d244ac615bc3fe87eb9, type: 3}
+      propertyPath: sueloVacio.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8300264823614643591, guid: 5b4fac5f65ce1d244ac615bc3fe87eb9, type: 3}
+      propertyPath: 'sueloVacio.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2739321278986727648, guid: ee33879e9abb7eb42b4836d7692875e9, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
