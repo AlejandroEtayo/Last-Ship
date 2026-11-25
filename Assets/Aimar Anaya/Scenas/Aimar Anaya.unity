@@ -119,6 +119,54 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &18301492
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 18301494}
+  - component: {fileID: 18301493}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &18301493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 18301492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a0ab39d603b9f74e9dd1f2ea10d2ff4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EfectosDeSonido
+  laser: {fileID: 8300000, guid: 0cf6e38db3465814fb8e34ff7ee538ab, type: 3}
+  naveMovimiento: {fileID: 8300000, guid: 002d2a5a041f8114fa463f3ef252d4b3, type: 3}
+  asteroide: {fileID: 8300000, guid: 3ed786ac3c2b19e4da3856ac2cd0bfdf, type: 3}
+  motorEstropeado: {fileID: 8300000, guid: bde75d37117c8af44b32fbd5ab245d0e, type: 3}
+--- !u!4 &18301494
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 18301492}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2112.2078, y: 936.0814, z: -2.25244}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &313608045
 GameObject:
   m_ObjectHideFlags: 0
@@ -1181,3 +1229,4 @@ SceneRoots:
   - {fileID: 313608049}
   - {fileID: 791073015}
   - {fileID: 1885104539}
+  - {fileID: 18301494}
