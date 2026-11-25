@@ -2,13 +2,14 @@ using UnityEngine;
 
 public class World : MonoBehaviour
 {
-    public int carril = 0;
+    [SerializeField] private int carril = 0;
     public GameObject[] suelo;
+    public float[] probabilidadesCadaSuelo;  
     //Este array es para crear los primeros suelos donde el jugador aprende a jugar
     public GameObject[] sueloVacio;
 
     //Cantidad de carriles que se generan al inicio del juego
-    public int SueloSpawn;
+    [SerializeField] private int SueloSpawn;
     
     //Falta hacer una función donde la dificultad sea un´más asequible y visualmente clara para el jugador: un ratio de spawn de carriles gestionado pro probabilidad
     //Hacer más variantes de carril lunar para notar que es el carril más seguro
@@ -19,6 +20,7 @@ public class World : MonoBehaviour
     {
         for (int i = 0; i < SueloSpawn; i++)
         {
+
             CrearSuelo();
 
         }
@@ -26,9 +28,6 @@ public class World : MonoBehaviour
 
     public void CrearSuelo()
     {
-        if (suelo == null || suelo.Length == 0)
-            return;
-
         Vector3 posicion = new Vector3(
             0f,
             0f,
@@ -46,7 +45,25 @@ public class World : MonoBehaviour
         // Si no hay carriles reciclados, crear uno nuevo
         if (nuevoCarril == null)
         {
-            GameObject prefab = suelo[Random.Range(0, suelo.Length)];
+            GameObject[] TiposueloSelec;
+
+            if (carril < 5) 
+            {
+                TiposueloSelec = sueloVacio;
+            }
+
+            else
+            {
+                TiposueloSelec = suelo;
+            }
+
+            if (TiposueloSelec == null || TiposueloSelec.Length == 0)
+                return;
+
+            GameObject prefab = ElegirCarril();
+
+            if (prefab == null)
+                return;
 
             nuevoCarril = Instantiate(prefab, posicion, Quaternion.identity);
         }
@@ -98,6 +115,45 @@ public class World : MonoBehaviour
         }
 
         return nuevoCarril;
+    }
+
+    public GameObject ElegirCarril()
+    {
+        if (suelo == null || suelo.Length == 0)
+            return null;
+
+        if (probabilidadesCadaSuelo == null || probabilidadesCadaSuelo.Length != suelo.Length)
+        {
+            Debug.LogError("Los arrays de suelos y las probabilidades e estos no coinciden");
+            return null;
+        }
+
+        float sumaTotal = 0f;
+
+        foreach (float probabilidad in probabilidadesCadaSuelo)
+        {
+            sumaTotal += Mathf.Max(0f, probabilidad);
+        }
+
+        if (sumaTotal <= 0f)
+        {
+            return null;
+        }
+
+        //Elige un valor aleatorio entre 0 y la suma
+        float NumAleatorio = Random.Range(0f, sumaTotal);
+
+        for (int i = 0; i < suelo.Length; i++)
+        {
+            NumAleatorio -= Mathf.Max(0f, probabilidadesCadaSuelo[i]);
+
+            if (NumAleatorio < 0f)
+            {
+                return suelo[i];
+            }
+        }
+
+        return suelo[suelo.Length - 1];
     }
 }
 

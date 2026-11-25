@@ -448,7 +448,7 @@ MonoBehaviour:
   world: {fileID: 0}
   velocidadMovimiento: 5
   posicionZ: 0
-  cooldownMovimiento: 0.2
+  cooldownMovimiento: 0.15
   vidas: 3
   sensorAdelante: {fileID: 6026964056504740216}
   sensorAtras: {fileID: 6502017044611739179}
