@@ -10,19 +10,19 @@ public class SpawnEnemigos : MonoBehaviour
     public Transform LugarSpawn;
     // Punto donde aparecerá el objeto
 
-    private GameObject objetoGenerado;
+    private GameObject AsteroideGenerado;
 
     private void Start()
     {
-        GenerarObjeto();
+        GenerarAsteroide();
     }
-    public void GenerarObjeto()
+    public void GenerarAsteroide()
     {
         // Eliminar el asteroide anterior
-        if (objetoGenerado != null)
+        if (AsteroideGenerado != null)
         {
-            Destroy(objetoGenerado);
-            objetoGenerado = null;
+            Destroy(AsteroideGenerado);
+            AsteroideGenerado = null;
         }
 
         if (objetos == null || objetos.Length == 0)
@@ -40,9 +40,9 @@ public class SpawnEnemigos : MonoBehaviour
 
 
         int array = Random.Range(0, objetos.Length);
-        objetoGenerado = Instantiate(objetos[array], LugarSpawn.position, LugarSpawn.rotation);
+        AsteroideGenerado = Instantiate(objetos[array], LugarSpawn.position, LugarSpawn.rotation);
         
-        objetoGenerado.transform.SetParent(transform, true);
+        AsteroideGenerado.transform.SetParent(transform, true);
     }
 
  }
